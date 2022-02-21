@@ -1,0 +1,98 @@
+$EN-font-family: 'Quicksand', sans-serif;
+$AR-font-family: 'Cairo', sans-serif;
+
+//Colors
+
+$main-color: #5271ff;
+$primary-color: #3C81FB;
+$Medium_slate_blue_color: #727cf5;
+$nero_color: #2a2a2a;
+$midnight_express_color: #272a33;
+$black_color: #353535;
+$black_russian_color: #272932;
+$white-color: #ffffff;
+$white_smoke_color: #f3f3f3;
+$light_white_smoke_color: #f1f1f1;
+$light_white_color:#F0F0F0;
+$alice_blue_color: #f5f7fa;
+$alice_light_blue_color: #e9f2ff;
+$solitude_color: #ebedf3;
+$warning-color: #ffa877;
+$warning-Background-color:#F6F0E1;
+$danger-color: #D9799B;
+$light-danger-color:#d9799b1f;
+$success-color: #81D979;
+$light-success-color:#81d9791f;
+$turquoise_color: #2fd5b7;
+$pigment_green_color: #10b759;
+$gray-color: #FAFAFA;
+$simi_white_color:#F9F9F9;
+$slate_white_color:#B5B5B5;
+$simi_gray_color: #888;
+$slate_gray_color: #727E8C;
+$balance_color:#B2B2B2;
+$dark_gray_color: #a8a8a8;
+$border_color:#a8a8a82e;
+$dim_gray_color: #686868;
+$mischka_color: #9da5be;
+$pine_glade_color: #c1c1c187;
+$light_gray_color:#D0D0D0;
+$chambray_color: #525f80;
+$indigo-color: #8e51ff;
+$sub_title_color: #7581a8;
+$light_gray_color: #f5f7fa;
+$dodger_blue_color: #1e7afe;
+$navy_blue_color: #0060df;
+$light_blue_color:#E3ECFC;
+$honeysuckle_color: #dadfe663;
+$bg-color: #f2f4f9;
+$title_color: #0e101a;
+$navy_color: #484d62;
+$selago_color: #e2e7fa;
+$black_Squeeze_color: #dff1f3;
+$turquoise_color: #2fd5b7;
+$info_color: #9da5be;
+$deActive_btn_color:#DFDFDF;
+$periwinkle_gray_color: #cfd5e8;
+$min_light_greay_color:#F5F5F5;
+$preiwinklye_color: #eaeaea;
+$royal_blue_color: #4761d7;
+$white_blue_color:#D7E0EF;
+$heliotrope_color: #8858ff;
+$whisper_color: #eeeeee;
+$blue_charcoal_color: #212529;
+$rich_blue_color: #5046BB;
+$royal_blue_color: #2962ff;
+$pine_glade_color: #c1c1c187;
+$sidebar_text_color: #7e7e7e;
+$gainsboro_color:#dedede;
+$aluminium_color:#878d94;
+$light_skyblue:#77BEFF;
+$light_orange:#FFA877;
+$orange_color:#E3BA26;
+$maya_blue_color: #77beff;
+$lemon_color: #f5de0d;
+$medium_purple_color: #B377FF;
+$link_water_color:#C5C6C7;
+$solitude_color:#E8EAED;
+$alice_blue: #FAFBFC;
+$alice_blue_color: #f5f7fa;
+$nero_color: #2a2a2a;
+$mischka_color: #9da5be;
+$pine_glade_color: #c1c1c187;
+$dark_black_color:#333333;
+
+
+//Light Colors
+$light-main-color: lighten($main-color, 31%);
+$light-primary-color: lighten($primary-color, 31%);
+$lighter-primary-color: rgba(60, 129, 251, 0.12);
+$light-warning-color: lighten($warning-color, 28%);
+$light-gray-color: lighten($gray-color, 32%);
+$light-indigo-color: lighten($indigo-color, 32%);
+
+//Dark Colors
+$dark-success-color: darken($success-color, 15%);
+
+$font-size: 15px;
+$transition: 0.5s;

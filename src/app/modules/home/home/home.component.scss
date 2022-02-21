@@ -1,0 +1,109 @@
+@import'../../../../assets/css/utils/variables.scss';
+
+
+.home{
+    padding-top: 50px;
+    .head{
+        position: fixed;
+        top: 50px;
+        width: 100%;
+        left: 15px;
+        z-index: 99;
+        background-color: #f8f9fa;
+        padding: 20px;
+        input{
+            padding: 13px 15px;
+            border: 1px solid #dadadad1;
+            border-radius: 15px;
+            width: 84%;
+            /* background: red; */
+            margin-inline-end: 20px;
+        }
+        button{
+            border-radius: 10px;
+        }
+    }
+
+    .body{
+        .item{
+            min-height: 300px;
+            position: relative;
+            margin-top: 50px;
+            border-radius: 15px;
+            overflow: hidden;
+            border:1px solid #F4F4F4;
+            background: #fff;
+            .item-head{
+                .contImg{
+                        width: 100%;
+                        height: 100%;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    } 
+            } 
+            .item-body{
+                padding:0 25px 25px 25px;
+                .card{
+                    margin-top: 15px;
+                    border:none;
+                    .title{
+                        color:#999;
+                        font-size: 20px;
+
+                    }
+                    h2{
+                        .dot{
+                            font-size: 16px;
+                            color:#00ABEC;
+                            position: relative;
+                            top:-5px;
+                            margin-inline-end:10px;
+                        }
+                        span{
+                            &:first-letter{
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+
+                    .links-list{
+                    // list-style-image: url('../../../../assets/imgs/cheked.png');
+                    }
+                }
+
+            }
+            .pen{
+                position: absolute;
+                top: 24px;
+                right: 18px;
+                font-size: 18px;
+                cursor: pointer;
+                color: #999;
+                opacity: .7;
+                transition: all .2s ease-in-out;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+            .trash{
+                position: absolute;
+                bottom:15px;
+                right:15px;
+                cursor: pointer;
+                color: red;
+                opacity: .7;
+                transition: all .2s ease-in-out;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+::ng-deep .text-highlight {
+    background: yellow;
+  }

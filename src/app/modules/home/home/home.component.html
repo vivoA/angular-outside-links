@@ -1,0 +1,87 @@
+<section class="home">
+    <div class="head d-flex">
+        <input type="text" placeholder="search here" [(ngModel)]="query">
+        <button class="btn btn-primary" (click)="addNew()"> add new link </button>
+    </div>
+
+    <!-- body -->
+    <div class="body">
+        <div class="row" *ngIf="!loading">
+            <div class="col-md-12" *ngFor="let item of items | search : query ; index as i">
+                <div class="item row">
+                    <div class="item-head col-md-5 p-0"> 
+                        <div class="contImg">
+                            <a style="cursor: pointer" title="open image in new tab " (click)="imgNewTab(item.photo)">
+                                <img [src]="item?.photo" alt="" onerror="this.src='assets/imgs/no-image.jpg'">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item-body col-md-7">
+                        <div class="card">
+                            <h2> 
+                                <i class="fa fa-circle dot"></i>
+                                <span 
+                                    Highlight
+                                    [content]="item?.data?.title" 
+                                    [searchTerm]="query" 
+                                    [caseSensitive]="false">  </span>
+                            </h2>
+                        </div>
+
+                        <div class="card">
+                            <label class="title" Highlight> Description </label>
+                            <ul class="list-unstyled">
+                                <li class="mt-1" 
+                                    *ngFor="let desc of item?.data?.description"
+                                    Highlight
+                                    [content]="desc" 
+                                    [searchTerm]="query" 
+                                    [caseSensitive]="false">  </li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <label class="title"> Links </label>
+                            <ul class="links-list" *ngFor="let link of item?.data.linksList; index as i">
+                                <li> <a [href]="link.link"
+                                        Highlight
+                                        [content]="link.link" 
+                                        [searchTerm]="query" 
+                                        [caseSensitive]="false"
+                                        >  </a> </li>
+                            </ul>
+                        </div>
+                        <i class="fa fa-pen pen"     (click)="onEdit(item)"></i>
+                        <i class="fa fa-trash trash" (click)="toDelate(item?.id)" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>     
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- stat skeleton loader -->
+        <div class="row mt-5" *ngIf="loading">
+            <div class="col-md-12" *ngFor="let i of [1,2,3,4,5,6]">
+                <div style="overflow: hidden; border-radius: 10px;">
+                    <app-skelaton [mode]="'homeCard'"></app-skelaton>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Button trigger modal -->
+<app-modal 
+    #modal
+    [title]="title"
+    [itemObj]="itemObj"
+></app-modal>
+
+
+<!-- confirmation modal -->
+<confirmation-modal
+       (confirm)="deleteItem()"
+       [modalContent]="'Are you sure you want to delete this item ?'"
+       [btnContent]="'delete'"
+></confirmation-modal>

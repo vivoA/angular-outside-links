@@ -1,0 +1,73 @@
+<side-panel [title]="title" [wideModal]="true">
+    <div class="display-contents" modal-content>
+        <!------------ Modal body ------------>
+        <div class="modal-body" >
+          <form [formGroup]="form" (submit)="onSubmit()" >
+              <div class="form-group">
+                <label class="form-label">  Title  <small class="required" *ngIf="submited && f.title.errors"> * </small></label>
+                <input type="text" name="title" formControlName="title" >
+              </div>
+              
+              <div class="form-group">
+                  <label class="form-label">  Description <span> ( separate them with comma ) </span> <small class="required" *ngIf="submited && f.description.errors"> * </small></label>
+                  <textarea
+                      autosize
+                      dir="auto"
+                      rows="8"
+                      [maxRows]="10"
+                      name="content"
+                      formControlName="description"
+                      class="form-control"
+                      #contentInput
+                      (keydown.enter)="contentInput.value ==='' ? $event.preventDefault():''">
+                  </textarea>            
+              </div>
+
+              
+              <div formArrayName="linksList">
+                  <div *ngFor="let control of linksList?.controls; index as i; first as first; last as last">  
+                      <div [formGroupName]="i">
+                        <div class="form-group d-flex">
+                          <input type="text" formControlName="link" placeholder="put your link here ..">
+                          <span class="icons">
+                            <i class="fa fa-minus remove" (click)="removeLink(i)"></i>
+                          </span>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="controls d-flex">
+                <i class="fa fa-plus add"  (click)="addLink()"></i>
+
+                <div class="uploadImgControl">
+                  <i class="fa fa-image upload" (click)="input.click()"></i>
+                  <input type="file"
+                          #input
+                         (change)="onFileSelect($event)"
+                         accept="image/*">
+                </div>
+              </div>
+
+              <!-- preview img-->
+              <div class="previewImg" *ngIf="previewImg">
+               <i class="fa fa-minus close" (click)="removePreview()"></i>
+                <img [src]="previewImg" alt="" >
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button  type="button" class="btn btn-outline-primary w-25" (click)="close()"> Cancel  </button>
+          <button  type="button" class="btn btn-primary send w-25" (click)="onSubmit()">
+             <i class="fa fa-spinner loader" *ngIf="btnLoading"></i> 
+             <i class="fa fa-check" *ngIf="!btnLoading"></i>
+             Send  
+          </button>
+        </div>
+    </div>
+</side-panel>
+
+
+
+
+
+
