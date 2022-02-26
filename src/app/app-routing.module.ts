@@ -9,6 +9,13 @@ const routes: Routes = [
       m=> m.HomeModule
     )
   },
+
+  {
+    path:"tasks",
+    loadChildren:() => import('./modules/tasks/tasks.module').then(
+      m => m.TasksModule
+    )
+  },
   
   {path:'',redirectTo:'home', pathMatch: 'full' },
 ];
