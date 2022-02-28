@@ -5,6 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { SidePanelService } from 'src/app/shard/components/side-panel/side-panel.service';
 
+declare var $:any
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
@@ -17,6 +18,8 @@ export class TasksComponent implements OnInit {
   title:string=''
   itemObj:any
   query:any
+  //if he typed an arabic words
+  arabic=/[\u0600-\u06FF]/;
   @ViewChild("modal") modal:any
  
   constructor(private modalSer:NgbModal,
@@ -73,4 +76,7 @@ export class TasksComponent implements OnInit {
   imgNewTab(igm:any){
     window.open(igm)
   }
+
 }
+
+
