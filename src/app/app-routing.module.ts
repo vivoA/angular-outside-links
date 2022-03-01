@@ -16,6 +16,15 @@ const routes: Routes = [
       m => m.TasksModule
     )
   },
+
+  {
+    path:"english",
+    loadChildren:() => import('./modules/english/english.module').then(
+      m => m.EnglishModule
+    )
+  },
+  
+
   
   {path:'',redirectTo:'home', pathMatch: 'full' },
 ];
