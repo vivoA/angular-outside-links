@@ -166,7 +166,7 @@ export class TasksModalComponent implements OnInit, OnChanges {
           let ref=this.firStorage.ref('imgs/' + img.name);
           ref.put(img).then(()=> {
             ref.getDownloadURL().subscribe(photo => {
-              this.fireStore.doc('items/'+ this.itemObj.id).update({
+              this.fireStore.doc('tasks/'+ this.itemObj.id).update({
                 data,
                 photo,
               }).then(res =>{

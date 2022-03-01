@@ -23,6 +23,13 @@ const routes: Routes = [
       m => m.EnglishModule
     )
   },
+
+  {
+    path:"posts",
+    loadChildren:() => import('./modules/posts/posts.module').then(
+      m => m.PostsModule
+    )
+  },
   
 
   

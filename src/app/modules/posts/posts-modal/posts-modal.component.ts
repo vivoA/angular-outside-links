@@ -8,11 +8,12 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { SidePanelService } from 'src/app/shard/components/side-panel/side-panel.service';
 
 @Component({
-  selector: 'app-en-modal',
-  templateUrl: './en-modal.component.html',
-  styleUrls: ['./en-modal.component.scss']
+  selector: 'app-posts-modal',
+  templateUrl: './posts-modal.component.html',
+  styleUrls: ['./posts-modal.component.scss']
 })
-export class EnModalComponent implements OnInit {
+export class PostsModalComponent implements OnInit {
+
 
   @Input() title:any;
   @Input() itemObj:any;
@@ -94,7 +95,6 @@ export class EnModalComponent implements OnInit {
   //remove preview img
   removePreview(){
     this.previewImg=null
-    this.igmToSend=null
   }
 
 
@@ -117,12 +117,12 @@ export class EnModalComponent implements OnInit {
           let ref=this.firStorage.ref('imgs/' + img.name);
           ref.put(img).then(()=> {
             ref.getDownloadURL().subscribe(photo => {
-              this.fireStore.collection('english').add({
+              this.fireStore.collection('posts').add({
                 data,
                 photo,
               }).then(res =>{
                 this.onSuccessSubmitted()
-                this.toaster.success("Your new task added successfully !")
+                this.toaster.success("Your new post added successfully !")
               }).catch(err =>{
                 console.log(err);
               })
@@ -130,11 +130,11 @@ export class EnModalComponent implements OnInit {
           });
           //if no img
         }else{
-          this.fireStore.collection('english').add({
+          this.fireStore.collection('posts').add({
             data,
           }).then(res =>{
             this.onSuccessSubmitted()
-            this.toaster.success("Your item added successfully !")
+            this.toaster.success("Your post added successfully !")
           }).catch(err =>{
             console.log(err);
           })
@@ -150,12 +150,12 @@ export class EnModalComponent implements OnInit {
         
         //if he update url only 
         if(typeof(img) === 'string'){
-          this.fireStore.doc('english/'+ this.itemObj.id).update({
+          this.fireStore.doc('posts/'+ this.itemObj.id).update({
             data,
             photo:this.itemObj.photo,
           }).then(res=>{
             this.onSuccessSubmitted()
-            this.toaster.success("task Updated Successfully !")
+            this.toaster.success("post Updated Successfully !")
           }).catch(err=>{
             this.toaster.error(err)
           })
@@ -167,7 +167,7 @@ export class EnModalComponent implements OnInit {
           let ref=this.firStorage.ref('imgs/' + img.name);
           ref.put(img).then(()=> {
             ref.getDownloadURL().subscribe(photo => {
-              this.fireStore.doc('english/'+ this.itemObj.id).update({
+              this.fireStore.doc('posts/'+ this.itemObj.id).update({
                 data,
                 photo,
               }).then(res =>{
@@ -182,11 +182,11 @@ export class EnModalComponent implements OnInit {
 
         //if no img in this item
         if(typeof(img) === 'undefined'){
-          this.fireStore.doc('english/'+ this.itemObj.id).update({
+          this.fireStore.doc('posts/'+ this.itemObj.id).update({
             data,
           }).then(res =>{
             this.onSuccessSubmitted()
-            this.toaster.success("task Updated Successfully !")
+            this.toaster.success("post Updated Successfully !")
           }).catch(err =>{
             console.log(err);
           })
@@ -206,6 +206,8 @@ export class EnModalComponent implements OnInit {
     this.previewImg=null
     this.btnLoading=false
   }
+
+
 
   //close
   close(){
